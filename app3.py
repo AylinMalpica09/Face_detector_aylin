@@ -5,7 +5,11 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    return render_template('index2.html')
+    return render_template('index3.html')
+
+@app.route('/second_page')
+def second_page():
+    return render_template('second_page.html')
 
 def recognize_faces():
     face_recognizer = cv2.face.LBPHFaceRecognizer_create()
@@ -28,7 +32,7 @@ def recognize_faces():
             
             # Reconocimiento facial
             label, confidence = face_recognizer.predict(face)
-            if confidence < 25:
+            if confidence < 30:
                 name = 'Aylin <3'
             else:
                 name = 'Desconocido'
